@@ -2,65 +2,89 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using Computers.ComputerTypes;
 
 	public class EntryPoint
 	{
 		private const int Eight = 8;
 
-		private static Computer pc, laptop, server;
+		private static PersonalComputer pc = null;
+		private static Server server = null;
+		private static Laptop laptop = null;
+
+		// Delete me
+		//private static Computer pc, laptop, server;
 
 		public static void Main()
 		{
 			var manufacturer = Console.ReadLine();
+
 			if (manufacturer == "HP")
 			{
 				var ram = new Rammstein(Eight / 4);
-				var videoCard = new HardDriver() { IsMonochrome = false };
-				pc = new Computer(ComputerType.PC, new Cpu(Eight / 4, 32, ram, videoCard), ram, new[] { new HardDriver(500, false, 0) }, videoCard, null);
+				var videoCard = new HardDrive() { IsMonochrome = false };
+				pc = new PersonalComputer
+				(
+					new Cpu(Eight / 4, 32, ram, videoCard), ram, new[] { new HardDrive(500, false, 0) }, videoCard
+				);
 
 				var serverRam = new Rammstein(Eight * 4);
-				var serverVideo = new HardDriver();
-				server = new Computer(ComputerType.SERVER, new Cpu(Eight / 2, 32, serverRam, serverVideo), serverRam, new List<HardDriver> { new HardDriver(0, true, 2, new List<HardDriver> { new HardDriver(1000, false, 0), new HardDriver(1000, false, 0) }) }, serverVideo, null);
+				var serverVideo = new HardDrive();
+				server = new Server(
+				new Cpu(Eight / 2, 32, serverRam, serverVideo),
+				serverRam,
+				new List<HardDrive> { new HardDrive(0, true, 2, new List<HardDrive> { new HardDrive(1000, false, 0), new HardDrive(1000, false, 0) }) },
+				serverVideo);
+
+				var card = new HardDrive()
 				{
-					var card = new HardDriver()
-					{
-						IsMonochrome
-						= false
-					};
-					var ram1 = new Rammstein(Eight / 2);
-					laptop = new Computer(
-						ComputerType.LAPTOP,
-						new Cpu(Eight / 4, 64, ram1, card),
-						ram1,
-						new[] { new HardDriver(500, false, 0) },
-						card,
-						new LaptopBattery());
-				}
+					IsMonochrome
+					= false
+				};
+
+				var ram1 = new Rammstein(Eight / 2);
+
+				laptop = new Laptop
+				(
+					new Cpu(Eight / 4, 64, ram1, card),
+					ram1,
+					new[] { new HardDrive(500, false, 0) },
+					card,
+					new LaptopBattery()
+				);
 			}
 			else if (manufacturer == "Dell")
 			{
 				var ram = new Rammstein(Eight);
-				var videoCard = new HardDriver() { IsMonochrome = false };
-				pc = new Computer(ComputerType.PC, new Cpu(Eight / 2, 64, ram, videoCard), ram, new[] { new HardDriver(1000, false, 0) }, videoCard, null);
+				var videoCard = new HardDrive() { IsMonochrome = false };
+
+				pc = new PersonalComputer
+				(
+				new Cpu(Eight / 2, 64, ram, videoCard), ram, new[] { new HardDrive(1000, false, 0) }, videoCard
+				);
+
 				var ram1 = new Rammstein(Eight * Eight);
-				var card = new HardDriver();
-				server =
-				new Computer(
-				ComputerType.SERVER,
+				var card = new HardDrive();
+
+				server = new Server
+				(
 					new Cpu(Eight, 64, ram1, card),
 					ram1,
-					new List<HardDriver> { new HardDriver(0, true, 2, new List<HardDriver> { new HardDriver(2000, false, 0), new HardDriver(2000, false, 0) }) },
-					card,
-					null);
+					new List<HardDrive> { new HardDrive(0, true, 2, new List<HardDrive> { new HardDrive(2000, false, 0), new HardDrive(2000, false, 0) }) },
+					card
+				);
+
 				var ram2 = new Rammstein(Eight);
-				var videoCard1 = new HardDriver() { IsMonochrome = false };
-				laptop = new Computer(
-				ComputerType.LAPTOP,
+				var videoCard1 = new HardDrive() { IsMonochrome = false };
+
+				laptop = new Laptop
+				(
 					new Cpu(Eight / 2, 32, ram2, videoCard1),
 					ram2,
-					new[] { new HardDriver(1000, false, 0) },
+					new[] { new HardDrive(1000, false, 0) },
 					videoCard1,
-					new LaptopBattery());
+					new LaptopBattery()
+				);
 			}
 			else
 			{

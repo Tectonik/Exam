@@ -1,4 +1,4 @@
-﻿namespace Computers
+﻿namespace Computers.ComputerComponents
 {
 	public class LaptopBattery
 	{

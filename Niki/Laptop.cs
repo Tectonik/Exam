@@ -3,8 +3,9 @@
 	using System;
 	using System.Linq;
 
-	public class Laptop
+	public class LaptopOld
 	{
+		// TODO: Possible middle man
 		private static void Wut()
 		{
 			EntryPoint computers = new EntryPoint();

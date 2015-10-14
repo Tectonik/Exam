@@ -1,11 +1,10 @@
-﻿namespace Computers
+﻿namespace Computers.ComputerTypes
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using C = System.Console;
 
-	public class HardDriver
+	public class HardDrive
 	{
 		private bool isInRaid;
 
@@ -13,17 +12,17 @@
 
 		private SortedDictionary<int, string> info;
 
-		private List<HardDriver> hds;
+		private List<HardDrive> hds;
 
 		private int capacity;
 
 		private Dictionary<int, string> data;
 
-		internal HardDriver()
+		internal HardDrive()
 		{
 		}
 
-		internal HardDriver(int capacity, bool isInRaid, int hardDrivesInRaid)
+		internal HardDrive(int capacity, bool isInRaid, int hardDrivesInRaid)
 		{
 			this.isInRaid = isInRaid;
 			this.hardDrivesInRaid = hardDrivesInRaid;
@@ -31,16 +30,16 @@
 			this.capacity = capacity;
 			this.data = new Dictionary<int, string>(capacity);
 
-			this.hds = new List<HardDriver>();
+			this.hds = new List<HardDrive>();
 		}
 
-		internal HardDriver(int capacity, bool isInRaid, int hardDrivesInRaid, List<HardDriver> hardDrives)
+		internal HardDrive(int capacity, bool isInRaid, int hardDrivesInRaid, List<HardDrive> hardDrives)
 		{
 			this.isInRaid = isInRaid;
 			this.hardDrivesInRaid = hardDrivesInRaid;
 			this.capacity = capacity;
-			this.data = (Dictionary<int, string>)new Dictionary<int, string>(capacity);
-			this.hds = new List<HardDriver>();
+			this.data = new Dictionary<int, string>(capacity);
+			this.hds = new List<HardDrive>();
 			this.hds = hardDrives;
 		}
 
@@ -92,7 +91,7 @@
 
 				return this.hds.First().LoadData(address);
 			}
-			else if (true)
+			else
 			{
 				return this.data[address];
 			}
@@ -102,15 +101,15 @@
 		{
 			if (this.IsMonochrome)
 			{
-				C.ForegroundColor = ConsoleColor.Gray;
-				C.WriteLine(a);
-				C.ResetColor();
+				Console.ForegroundColor = ConsoleColor.Gray;
+				Console.WriteLine(a);
+				Console.ResetColor();
 			}
 			else
 			{
-				C.ForegroundColor = ConsoleColor.Green;
-				C.WriteLine(a);
-				C.ResetColor();
+				Console.ForegroundColor = ConsoleColor.Green;
+				Console.WriteLine(a);
+				Console.ResetColor();
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿namespace Computers
 {
 	using System;
+	using Computers.ComputerTypes;
 
 	public class Cpu
 	{
@@ -10,9 +11,9 @@
 
 		private readonly Rammstein ram;
 
-		private readonly HardDriver videoCard;
+		private readonly HardDrive videoCard;
 
-		internal Cpu(byte numberOfCores, byte numberOfBits, Rammstein ram, HardDriver videoCard)
+		internal Cpu(byte numberOfCores, byte numberOfBits, Rammstein ram, HardDrive videoCard)
 		{
 			this.numberOfBits = numberOfBits;
 			this.ram = ram;
