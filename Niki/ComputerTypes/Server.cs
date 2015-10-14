@@ -15,6 +15,7 @@
 			: base(cpu, ram, hardDrives, videoCard)
 		{
 		}
+
 		internal void Process(int data)
 		{
 			this.Ram.SaveValue(data);

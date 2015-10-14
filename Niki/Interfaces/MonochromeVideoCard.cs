@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
-using Computers.Interfaces;
-
-namespace Computers.Interfaces
+﻿namespace Computers.Interfaces
 {
+	using System;
+	using System.Linq;
+
 	public abstract class MonochromeVideoCard : IVideoCard
 	{
 		public void Draw(string textToDraw)

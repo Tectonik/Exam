@@ -3,7 +3,7 @@
 	using System;
 	using System.Linq;
 
-	class DynamicMemory
+	public class DynamicMemory
 	{
 	}
 }

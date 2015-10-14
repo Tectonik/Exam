@@ -58,7 +58,7 @@
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="ComputerComponents\LaptopBattery.cs" />
     <Compile Include="Rammstein.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Computers.Interfaces
+﻿namespace Computers.Interfaces
 {
+	using System;
+	using System.Linq;
+
 	public interface IVideoCard
 	{
 		void Draw(string textToDraw);
