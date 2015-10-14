@@ -1,1 +1,2 @@
 D:\Work\Telerik\High Quality Code\High-Quality-Code\Exams\2014\Computers\Problem\Niki\bin\Debug\Computers.UI.Console.exe.config
+D:\Work\Telerik\High Quality Code\Exam2015\Niki\bin\Debug\Computers.UI.Console.exe.config
