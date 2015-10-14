@@ -1,15 +1,16 @@
-﻿namespace Computers1
+﻿namespace Computers
 {
 	class Rammstein
 	{
 		int value;
+		int Amount { get; set; }
+
 
 		internal Rammstein(int a)
 		{
 			this.Amount = a;
 		}
 
-		int Amount { get; set; }
 
 		public void SaveValue(int newValue)
 		{

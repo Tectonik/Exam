@@ -1,11 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using C = System.Console;
-
-namespace Computers11
+﻿namespace Computers
 {
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using C = System.Console;
 
 	class HardDriver
 	{
@@ -48,10 +47,10 @@ namespace Computers11
 		{
 			this.isInRaid = isInRaid;
 			this.hardDrivesInRaid = hardDrivesInRaid;
-			this.capacity = capacity
+			this.capacity = capacity;
 
 
-			this.data = (Dictionary<int, string>)new Dictionary<int, string>(capacity);this.hds = new List<HardDriver>();this.hds = hardDrives;
+			this.data = (Dictionary<int, string>)new Dictionary<int, string>(capacity); this.hds = new List<HardDriver>(); this.hds = hardDrives;
 		}
 		int Capacity
 		{
