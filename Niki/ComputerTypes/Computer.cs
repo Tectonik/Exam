@@ -3,6 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using Computers.Interfaces;
 
 	public abstract class Computer
 	{
@@ -10,7 +11,7 @@
 				  Cpu cpu,
 				  Rammstein ram,
 				  IEnumerable<HardDrive> hardDrives,
-				  HardDrive videoCard)
+				  IVideoCard videoCard)
 		{
 			Cpu = cpu;
 			this.Ram = ram;
@@ -20,7 +21,7 @@
 
 		protected IEnumerable<HardDrive> HardDrives { get; set; }
 
-		protected HardDrive VideoCard { get; set; }
+		protected IVideoCard VideoCard { get; set; }
 
 		protected Cpu Cpu { get; set; }
 

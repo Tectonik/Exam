@@ -12,6 +12,7 @@
 		internal void Charge(int p)
 		{
 			this.Percentage += p;
+
 			if (this.Percentage > 100)
 			{
 				this.Percentage = 100;

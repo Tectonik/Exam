@@ -3,6 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using Computers.Interfaces;
 
 	public class Server : Computer
 	{
@@ -10,7 +11,7 @@
 			Cpu cpu,
 			Rammstein ram,
 			IEnumerable<HardDrive> hardDrives,
-			HardDrive videoCard)
+			MonochromeVideoCard videoCard)
 			: base(cpu, ram, hardDrives, videoCard)
 		{
 		}
