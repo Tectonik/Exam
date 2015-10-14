@@ -1,25 +1,24 @@
 ﻿namespace Computers
 {
-	class Rammstein
+	public class Rammstein
 	{
-		int value;
-		int Amount { get; set; }
-
+		private int value;
 
 		internal Rammstein(int a)
 		{
 			this.Amount = a;
 		}
 
+		public int Amount { get; set; }
 
 		public void SaveValue(int newValue)
 		{
-			value = newValue;
+			this.value = newValue;
 		}
 
 		public int LoadValue()
 		{
-			return value;
+			return this.value;
 		}
 	}
 }

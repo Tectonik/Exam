@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-namespace Computers.Interfaces
+﻿namespace Computers.Interfaces
 {
+	using System;
 	using System.Linq;
 
-	interface IMotherboard
+	public interface IMotherboard
 	{
 		int LoadRamValue();
 

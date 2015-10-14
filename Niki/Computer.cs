@@ -4,63 +4,63 @@
 	using System.Collections.Generic;
 	using System.Linq;
 
-	class Computer
+	public class Computer
 	{
-		IEnumerable<HardDriver> HardDrives { get; set; }
+		private readonly LaptopBattery battery;
 
-		HardDriver VideoCard { get; set; }
-
-		[Obsolete("")]
-		internal void ChargeBattery(int percentage)
+		internal Computer(
+		ComputerType type,
+				  Cpu cpu,
+				  Rammstein ram,
+				  IEnumerable<HardDriver> hardDrives,
+				  HardDriver videoCard,
+				  LaptopBattery battery)
 		{
-			battery.Charge(percentage);
+			Cpu = cpu;
+			this.Ram = ram;
+			this.HardDrives = hardDrives;
+			this.VideoCard = videoCard;
+			if (type == ComputerType.SERVER)
+			{
+				this.VideoCard.IsMonochrome = true;
+			}
 
-			VideoCard.Draw(string.Format("Battery status: {0}", battery.Percentage));
+			this.battery = battery;
 		}
 
-		Cpu Cpu { get; set; }
+		public IEnumerable<HardDriver> HardDrives { get; set; }
 
-		readonly LaptopBattery battery;
+		public HardDriver VideoCard { get; set; }
 
-		Rammstein Ram { get; set; }
+		public Cpu Cpu { get; set; }
+
+		public Rammstein Ram { get; set; }
 
 		public void Play(int guessNumber)
 		{
-			Cpu.rand(1, 10);
-			var number = Ram.LoadValue();
+			Cpu.Rand(1, 10);
+			var number = this.Ram.LoadValue();
 			if (number + 1 != guessNumber + 1)
-				VideoCard.Draw(string.Format("You didn't guess the number {0}.", number));
+			{
+				this.VideoCard.Draw(string.Format("You didn't guess the number {0}.", number));
+			}
 			else
-				VideoCard.Draw("You win!");
+			{
+				this.VideoCard.Draw("You win!");
+			}
 		}
 
-		internal Computer(ComputerType type,
-						  Cpu cpu,
-
-						  Rammstein
-						  ram,
-						  IEnumerable<HardDriver> hardDrives,
-						  HardDriver videoCard,
-						  LaptopBattery battery)
+		internal void ChargeBattery(int percentage)
 		{
-			Cpu = cpu;
-			Ram = ram;
-			HardDrives = hardDrives;
-			VideoCard =
+			this.battery.Charge(percentage);
 
-			videoCard;
-			if (type !=
-				ComputerType.LAPTOP
-				&& type
-				   !=
-				   ComputerType.PC)
-				VideoCard.IsMonochrome = true;
-			this.battery = battery;
+			this.VideoCard.Draw(string.Format("Battery status: {0}", this.battery.Percentage));
 		}
 
 		internal void Process(int data)
 		{
-			Ram.SaveValue(data);
+			this.Ram.SaveValue(data);
+
 			// TODO: Fix it
 			Cpu.SquareNumber();
 		}
